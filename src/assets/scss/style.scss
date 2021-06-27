@@ -9,9 +9,6 @@ $theme-colors: ("info": #ffbc44,
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";
-@import "selection.scss";
-@import "resume.scss";
-@import "scrollbar.scss";
 
 
 // @import "/src/assets/fonts/fonts.css";
@@ -19,11 +16,8 @@ $theme-colors: ("info": #ffbc44,
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 
-
-
 html,
 body {
-    cursor: none;
     background-color: map.get($theme-colors, "dark");
     font-family: 'Comfortaa', cursive;
 }
@@ -33,7 +27,6 @@ a {
 }
 
 a:hover {
-    cursor: none;
     text-decoration: none;
 }
 

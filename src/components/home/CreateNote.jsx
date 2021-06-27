@@ -56,7 +56,7 @@ export default function CreateNote() {
 
   return (
     <>
-      <div className="container col-md-8 col-xl-6 mt-4">
+      <div className="container  col-md-8 col-xl-6 mt-4">
         <form action="#">
           <TextField
             id="note"
@@ -65,6 +65,7 @@ export default function CreateNote() {
             rows={4}
             fullWidth
             multiline
+            className="text-white"
             onChange={handleChange}
             value={state.note}
           />
