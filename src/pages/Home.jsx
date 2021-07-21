@@ -1,12 +1,10 @@
 import Layout from "./Layout";
-import CreateNote from "../components/home/CreateNote";
-import GetNotes from "../components/home/GetNotes";
+import Phases from "../components/dumps/Phases";
 
 export default function Home() {
   return (
     <Layout>
-      <CreateNote></CreateNote>
-      <GetNotes></GetNotes>
+      <Phases />
     </Layout>
   );
 }
