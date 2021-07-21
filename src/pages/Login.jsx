@@ -1,4 +1,3 @@
-import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
 import "../firebase";
@@ -38,18 +37,15 @@ export default function Login() {
         className="container d-flex align-items-center justify-content-center flex-column"
         style={{ minHeight: "100vh" }}
       >
-        <h1 className="text-primary">
-          <strong>reactor</strong>-pad-app
+        <h1 className="text-white">
+          react-<strong>dump</strong>-tabs
         </h1>
-        <Button
-          variant="contained"
-          color="primary"
-          className="mt-3"
-          style={{ textTransform: "capitalize" }}
+        <button
+          className="mt-3 btn btn-lg btn-primary container text-capitalize"
           onClick={signInWithGoogle}
         >
           Sign in with Google
-        </Button>
+        </button>
       </div>
     </section>
   );
