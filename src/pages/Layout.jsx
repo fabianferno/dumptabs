@@ -1,7 +1,3 @@
-import Appbar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
 
@@ -22,20 +18,17 @@ export default function Layout(props) {
 
   return (
     <>
-      <Appbar position="static">
-        <Toolbar className="bg-dark d-flex justify-content-between">
-          <Typography variant="h6" className="font-weight-bold">
-            reactor-pad-app
-          </Typography>
-          <Button
+      <section className="fixed-top">
+        <div className="bg-dark d-flex p-3 justify-content-between align-items-center">
+          <h2 className="font-weight-bold">react-dump-tabs</h2>
+          <button
             onClick={logout}
-            variant="contained"
-            className="font-weight-bold text-capitalize"
+            className="btn btn-lg btn-primary font-weight-bold text-capitalize"
           >
             Logout
-          </Button>
-        </Toolbar>
-      </Appbar>
+          </button>
+        </div>
+      </section>
       {props.children}
     </>
   );
