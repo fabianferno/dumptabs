@@ -18,7 +18,7 @@ export default function Layout(props) {
 
   return (
     <>
-      <section className="fixed-top">
+      <section className="">
         <div className="bg-dark d-flex p-3 justify-content-between align-items-center">
           <h2 className="font-weight-bold">react-dump-tabs</h2>
           <button
