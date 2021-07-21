@@ -16,12 +16,16 @@ $theme-colors: ("primary": #3500D3,
 @import "/src/assets/fonts/fonts.css";
 //@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 
 html,
 body {
     background-color: map.get($theme-colors, "black");
     font-family: 'Poppins', cursive;
     color: map.get($theme-colors, "dull");
+    min-height: 100vh;
 }
 
 a {
@@ -80,4 +84,44 @@ img.dark-shadow {
 .social-pill:hover {
     color: map.get($theme-colors, "dark");
     background-color: map.get($theme-colors, "primary");
+}
+
+.container {
+    width: 100vw;
+    height: 80vh;
+    position: absolute;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+
+.half-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.box {
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    bottom: 50px;
+    right: 50px;
+    background: black;
+    opacity: 0.5;
+    border-radius: 50px;
 }
