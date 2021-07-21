@@ -1,25 +1,27 @@
 @use "sass:map";
 /* make the customizations */
-$theme-colors: ("info": #ffbc44,
-    "primary": #60ff9f,
-    "dark": rgb(31, 31, 31),
-    "secondary": #a7a7a7,
-    "black": #0f0f0f,
-);
+$theme-colors: ("primary": #3500D3,
+    "dark": #282828,
+    "secondary": #240090,
+    "info": #190061,
+    "warning":#0C0032,
+    "dull" : #eeeeee,
+    "black": #050505,
+    "success": #60ff9f);
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";
 
 
-// @import "/src/assets/fonts/fonts.css";
-@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import "/src/assets/fonts/fonts.css";
+//@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap');
 
 
 html,
 body {
-    background-color: map.get($theme-colors, "dark");
-    font-family: 'Comfortaa', cursive;
+    background-color: map.get($theme-colors, "black");
+    font-family: 'Poppins', cursive;
+    color: map.get($theme-colors, "dull");
 }
 
 a {
@@ -32,7 +34,7 @@ a:hover {
 
 .hero {
     font-size: 7.5em;
-    font-family: 'Bilbo Swash Caps', cursive;
+    font-family: 'Poppins', cursive;
     line-height: "115px";
 }
 
