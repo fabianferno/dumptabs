@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
-import LinearProgress from "@material-ui/core/LinearProgress";
 
 class PrivateRoute extends React.Component {
   constructor(props) {
@@ -40,7 +39,9 @@ class PrivateRoute extends React.Component {
             width: "100vw",
           }}
         >
-          <LinearProgress className="w-25"> </LinearProgress>{" "}
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
       );
     } else {
