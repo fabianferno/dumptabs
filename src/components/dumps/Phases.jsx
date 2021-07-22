@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { AnimateSharedLayout } from "framer-motion";
 import Zone from "./Zone";
 
-export default function Notes(props) {
+export default function Phases(props) {
   const useViewportWidth = () => {
     const viewportWidth = useRef(0);
     useEffect(() => {
@@ -34,31 +34,39 @@ export default function Notes(props) {
   };
 
   return (
-    <section className="d-flex align-items-start justify-content-center">
-      <AnimateSharedLayout>
-        <div className="phase-container bg-primary">
-          <Zone
-            title="Perhaps"
-            color="#C9E947"
-            isSelected={activePart === "a"}
-            onViewportBoxUpdate={onViewportBoxUpdate}
-          />
+    <section>
+      <div className="d-flex m-5 align-items-start justify-content-center">
+        <AnimateSharedLayout>
+          <div
+            className="phase-container"
+            style={{ borderBottom: "15px solid #3500D3" }}
+          >
+            <Zone
+              title="Perhaps"
+              color="#dddddd"
+              isSelected={activePart === "a"}
+              onViewportBoxUpdate={onViewportBoxUpdate}
+            />
 
-          <Zone
-            title="Wants"
-            color="#FED700"
-            isSelected={activePart === "b"}
-            onViewportBoxUpdate={onViewportBoxUpdate}
-          />
+            <Zone
+              title="Wants"
+              color="#dddddd"
+              isSelected={activePart === "b"}
+              onViewportBoxUpdate={onViewportBoxUpdate}
+            />
 
-          <Zone
-            title="Musts"
-            color="#ffffff"
-            isSelected={activePart === "c"}
-            onViewportBoxUpdate={onViewportBoxUpdate}
-          />
-        </div>
-      </AnimateSharedLayout>
+            <Zone
+              title="Musts"
+              color="#dddddd"
+              isSelected={activePart === "c"}
+              onViewportBoxUpdate={onViewportBoxUpdate}
+            />
+          </div>
+        </AnimateSharedLayout>
+      </div>
+      <p className="text-white h1 bg-dark container text-center p-2 ">
+        We use this software to brainstorm.
+      </p>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TextField from "@material-ui/core/TextField";
+import { withStyles } from "@material-ui/core/styles";
 
 export default function Zone({
   title,
@@ -8,14 +9,25 @@ export default function Zone({
   isSelected,
   onViewportBoxUpdate,
 }) {
-  return (
-    <div className="half-container">
-      <h1 className="text-white">{title}</h1>
+  const StyledTextField = withStyles((theme) => ({
+    root: {
+      width: 300,
+      "& .MuiInputBase-root": {
+        color: "#3500D3",
+        height: 60,
+        borderBottom: "5px #3500D3",
+      },
+    },
+  }))(TextField);
 
-      <motion.div className="overlay shadow" />
+  return (
+    <div className="half-container ">
+      <h1 className="text-white no-select mx-4">{title}</h1>
+
+      <motion.div className="overlay  " />
       {isSelected && (
         <motion.div
-          className="box shadow container"
+          className="box container"
           layoutId="box"
           initial={false}
           animate={{ backgroundColor: color }}
@@ -30,7 +42,7 @@ export default function Zone({
             action="#"
             className="p-2 d-flex align-items-center text-white "
           >
-            <TextField
+            <StyledTextField
               label="Type something..."
               rows={3}
               fullWidth

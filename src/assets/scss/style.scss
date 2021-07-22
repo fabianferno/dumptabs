@@ -3,6 +3,7 @@
 $theme-colors: ("primary": #3500D3,
     "dark": #282828,
     "secondary": #240090,
+    "danger": #ff4c4c,
     "info": #190061,
     "warning":#0C0032,
     "dull" : #eeeeee,
@@ -77,22 +78,29 @@ img.dark-shadow {
 .social-pill {
     margin-left: -10px;
     padding-left: 25px;
-    color: map.get($theme-colors, "primary");
+    color: #ffffff;
     background-color: map.get($theme-colors, "dark");
 }
 
 .social-pill:hover {
     color: map.get($theme-colors, "dark");
-    background-color: map.get($theme-colors, "primary");
+    background-color: map.get($theme-colors, "dull");
+}
+
+.no-select {
+    user-select: none;
+    /* Standard */
 }
 
 .phase-container {
-    width: 100vw;
-    height: 80vh;
+    width: 85vw;
+    height: 70vh;
     position: absolute;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
+    background-color: map.get($theme-colors, "info");
+    border-bottom: map.get($theme-colors, "primary");
 }
 
 
@@ -100,7 +108,7 @@ img.dark-shadow {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 33%;
     height: 100%;
     position: relative;
 }
@@ -111,6 +119,7 @@ img.dark-shadow {
     border-radius: 15px;
     position: relative;
     z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -120,7 +129,7 @@ img.dark-shadow {
     left: 50px;
     bottom: 50px;
     right: 50px;
-    background: black;
-    opacity: 0.5;
+    background: rgba(0, 0, 0, 0.39);
+    opacity: 0.3;
     border-radius: 35px;
 }
