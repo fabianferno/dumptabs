@@ -86,7 +86,7 @@ img.dark-shadow {
     background-color: map.get($theme-colors, "primary");
 }
 
-.container {
+.phase-container {
     width: 100vw;
     height: 80vh;
     position: absolute;
@@ -106,10 +106,9 @@ img.dark-shadow {
 }
 
 .box {
-    background: white;
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 15px;
     position: relative;
     z-index: 1;
 }
@@ -123,5 +122,5 @@ img.dark-shadow {
     right: 50px;
     background: black;
     opacity: 0.5;
-    border-radius: 50px;
+    border-radius: 35px;
 }
