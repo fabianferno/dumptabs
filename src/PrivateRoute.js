@@ -39,7 +39,15 @@ class PrivateRoute extends React.Component {
             width: "100vw",
           }}
         >
-          <div className="spinner-border" role="status">
+          <div
+            style={{ width: "30rem", height: "30rem" }}
+            className="spinner-border text-primary"
+            role="status"
+          >
+            <div
+              style={{ width: "20rem", height: "20rem", fontSize: "3.2rem" }}
+              className="spinner-border text-white "
+            ></div>
             <span className="visually-hidden">Loading...</span>
           </div>
         </div>
