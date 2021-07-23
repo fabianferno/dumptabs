@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
+import runAtDb from "./features/harper-db";
 
 class PrivateRoute extends React.Component {
   constructor(props) {
@@ -14,6 +15,33 @@ class PrivateRoute extends React.Component {
     firebase.auth().onAuthStateChanged(
       function (user) {
         if (user) {
+          const userData = runAtDb({
+            operation: "search_by_value",
+            schema: "dumptabs",
+            table: "dumps",
+            search_attribute: "uid",
+            search_value: firebase.auth().currentUser.uid,
+            get_attributes: ["perhaps", "wants", "musts"],
+          });
+          console.log(userData);
+
+          if (userData.length === 0) {
+            var insertStatus = runAtDb({
+              operation: "insert",
+              schema: "dumptabs",
+              table: "dumps",
+              records: [
+                {
+                  uid: firebase.auth().currentUser.uid,
+                  perhaps: [],
+                  wants: [],
+                  musts: [],
+                },
+              ],
+            });
+            console.log(insertStatus);
+          }
+
           this.setState({
             isLoaded: true,
             user: user,
@@ -44,10 +72,6 @@ class PrivateRoute extends React.Component {
             className="spinner-border text-primary"
             role="status"
           >
-            <div
-              style={{ width: "20rem", height: "20rem", fontSize: "3.2rem" }}
-              className="spinner-border text-white "
-            ></div>
             <span className="visually-hidden">Loading...</span>
           </div>
         </div>
