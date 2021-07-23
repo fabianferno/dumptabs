@@ -14,15 +14,15 @@ export default function Zone({
       width: 300,
       "& .MuiInputBase-root": {
         color: "#3500D3",
-        height: 60,
-        borderBottom: "5px #3500D3",
       },
     },
   }))(TextField);
 
   return (
-    <div className="half-container ">
-      <h1 className="text-white no-select mx-4">{title}</h1>
+    <div className="part-container">
+      <h1 style={{ zIndex: "1" }} className="text-white no-select mx-4">
+        {title}
+      </h1>
 
       <motion.div className="overlay  " />
       {isSelected && (
@@ -38,19 +38,22 @@ export default function Zone({
           dragElastic={1}
           onViewportBoxUpdate={onViewportBoxUpdate}
         >
-          <form
-            action="#"
-            className="p-2 d-flex align-items-center text-white "
-          >
+          <form action="#" className="p-2 text-white ">
             <StyledTextField
               label="Type something..."
-              rows={3}
+              rows={2}
               fullWidth
               multiline
-              className="d-flex font-weight-bold"
+              variant="filled"
+              className="d-flex"
               // onChange={handleChange}
               // value={state.note}
             />
+            <div className="d-flex justify-content-end">
+              <button className="mt-2 badge rounded-pill btn  btn-block btn-primary">
+                + Add a new dump
+              </button>
+            </div>
           </form>
         </motion.div>
       )}
