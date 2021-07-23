@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const runAtDb = (payload) => {
-  var result = "";
+export default function runAtDb(payload) {
+  var result;
   axios({
     method: "post",
     url: "https://pattarai-fabianferno.harperdbcloud.com",
@@ -12,14 +12,14 @@ const runAtDb = (payload) => {
     data: JSON.stringify(payload),
   })
     .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      result = JSON.stringify(response.data);
+      result = response.data;
+      //console.log(JSON.stringify(response.data));
+      //console.log(response.data);
     })
     .catch(function (error) {
-      console.log(error);
       result = error;
+      //console.log(error);
     });
+  console.log(result);
   return result;
-};
-
-export default runAtDb;
+}
