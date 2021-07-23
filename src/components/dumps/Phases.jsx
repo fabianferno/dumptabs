@@ -17,19 +17,19 @@ export default function Phases(props) {
   };
 
   const viewportWidth = useViewportWidth();
-  const [activePart, setActivePart] = useState("a");
+  const [activePart, setActivePart] = useState("perhaps");
 
+  // To place the box in corresponding phases
   const onViewportBoxUpdate = ({ x }) => {
     const partViewPort = viewportWidth.current / 3;
-
-    if (activePart === "a" && x.min > partViewPort) {
-      setActivePart("b");
-    } else if (activePart === "b" && x.min > 2 * partViewPort) {
-      setActivePart("c");
-    } else if (activePart === "c" && x.max < 2 * partViewPort) {
-      setActivePart("b");
-    } else if (activePart === "b" && x.max < partViewPort) {
-      setActivePart("a");
+    if (activePart === "perhaps" && x.min > partViewPort) {
+      setActivePart("wants");
+    } else if (activePart === "wants" && x.min > 2 * partViewPort) {
+      setActivePart("musts");
+    } else if (activePart === "musts" && x.max < 2 * partViewPort) {
+      setActivePart("wants");
+    } else if (activePart === "wants" && x.max < partViewPort) {
+      setActivePart("perhaps");
     }
   };
 
@@ -44,21 +44,24 @@ export default function Phases(props) {
             <Zone
               title="Perhaps🙌"
               color="#BAF70C"
-              isSelected={activePart === "a"}
+              activePart={activePart}
+              isSelected={activePart === "perhaps"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
 
             <Zone
               title="Wants🤞"
               color="#FED700"
-              isSelected={activePart === "b"}
+              activePart={activePart}
+              isSelected={activePart === "wants"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
 
             <Zone
               title="Musts👏"
               color="#ffffff"
-              isSelected={activePart === "c"}
+              activePart={activePart}
+              isSelected={activePart === "musts"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
           </div>
