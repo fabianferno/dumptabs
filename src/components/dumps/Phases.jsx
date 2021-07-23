@@ -35,36 +35,36 @@ export default function Phases(props) {
 
   return (
     <section>
-      <div className="d-flex m-5 align-items-start justify-content-center">
+      <div className="d-flex m-5  align-items-start justify-content-center">
         <AnimateSharedLayout>
           <div
-            className="phase-container"
+            className="phase-container "
             style={{ borderBottom: "15px solid #3500D3" }}
           >
             <Zone
-              title="Perhaps"
-              color="#dddddd"
+              title="Perhaps🙌"
+              color="#BAF70C"
               isSelected={activePart === "a"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
 
             <Zone
-              title="Wants"
-              color="#dddddd"
+              title="Wants🤞"
+              color="#FED700"
               isSelected={activePart === "b"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
 
             <Zone
-              title="Musts"
-              color="#dddddd"
+              title="Musts👏"
+              color="#ffffff"
               isSelected={activePart === "c"}
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
           </div>
           <p
-            style={{ zIndex: "2", color: "grey" }}
-            className="p font-weight-light bg-dark container shadow text-center p-2 "
+            style={{ zIndex: "1", minWidth: "88vw" }}
+            className=" bg-primary no-select px-5 shadow  text-center p-2 "
           >
             A <strong>brain dump</strong> is a complete transfer of accessible
             knowledge about a particular subject from your brain. <br />
