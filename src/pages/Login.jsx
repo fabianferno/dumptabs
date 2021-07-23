@@ -10,7 +10,7 @@ export default function Login() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
-      console.log(user);
+      //console.log(user);
       history.push("/home");
     }
   });
