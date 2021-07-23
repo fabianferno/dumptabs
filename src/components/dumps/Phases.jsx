@@ -68,7 +68,8 @@ export default function Phases(props) {
           >
             A <strong>brain dump</strong> is a complete transfer of accessible
             knowledge about a particular subject from your brain. <br />
-            Move your thoughts and prioritize your goals in the boards below.
+            Move your thoughts and prioritize your zones through the phases
+            below.
           </p>
         </AnimateSharedLayout>
       </div>
