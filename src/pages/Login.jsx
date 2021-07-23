@@ -1,7 +1,5 @@
 import { useHistory } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
-import { useDispatch } from "react-redux";
-import { login } from "../features/userSlice";
 
 import "../features/firebase";
 import firebase from "firebase/app";
