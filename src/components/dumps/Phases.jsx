@@ -62,11 +62,16 @@ export default function Phases(props) {
               onViewportBoxUpdate={onViewportBoxUpdate}
             />
           </div>
+          <p
+            style={{ zIndex: "2", color: "grey" }}
+            className="p font-weight-light bg-dark container shadow text-center p-2 "
+          >
+            A <strong>brain dump</strong> is a complete transfer of accessible
+            knowledge about a particular subject from your brain. <br />
+            Move your thoughts and prioritize your goals in the boards below.
+          </p>
         </AnimateSharedLayout>
       </div>
-      <p className="text-white h1 bg-dark container text-center p-2 ">
-        We use this software to brainstorm.
-      </p>
     </section>
   );
 }
