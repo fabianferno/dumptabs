@@ -30,13 +30,25 @@ body {
     overflow: hidden;
 }
 
-a {
-    font-weight: bold;
+/* Code for Selection Text */
+::-moz-selection {
+    background: map.get($theme-colors, "primary");
+
+    color: map.get($theme-colors, "white");
 }
 
-a:hover {
+::selection {
+    background: map.get($theme-colors, "primary");
+
+    color: map.get($theme-colors, "white");
+}
+
+a {
+    font-weight: bold;
     text-decoration: none;
 }
+
+
 
 .hero {
     font-size: 7.5em;
@@ -49,19 +61,18 @@ a:hover {
 }
 
 .hover-box {
-    padding-bottom: 15px;
-    background-image: linear-gradient(to right,
+    background-image: linear-gradient(to bottom,
             transparent calc(0% - 5px),
-            #60ff9f 0%,
-            #272727 100%);
-    background-size: 0%;
+            map.get($theme-colors, "primary") 0%,
+            map.get($theme-colors, "dark") 100%);
+    background-size: 100%;
     background-repeat: no-repeat;
     display: inline;
     transition: 0.5s ease;
 }
 
 .hover-box:hover {
-    background-size: 100%;
+    background-size: 0%;
 }
 
 h1 {

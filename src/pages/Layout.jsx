@@ -20,7 +20,9 @@ export default function Layout(props) {
     <>
       <section className="bg-dark shadow">
         <div className=" d-flex p-3 justify-content-between align-items-center">
-          <h1 className="text-white font-weight-bold mt-2">react-dump-tabs</h1>
+          <h1 className="text-white font-weight-bold mt-2">
+            <strong>dump</strong>-tabs&trade;
+          </h1>
           <button
             onClick={logout}
             className="btn btn-lg btn-primary font-weight-bold text-capitalize"
