@@ -15,32 +15,20 @@ class PrivateRoute extends React.Component {
     firebase.auth().onAuthStateChanged(
       function (user) {
         if (user) {
-          // Check for a user's data in the database
-          const userData = runAtDb({
-            operation: "search_by_value",
+          var insertStatus = runAtDb({
+            operation: "insert",
             schema: "dumptabs",
             table: "dumps",
-            search_attribute: "uid",
-            search_value: firebase.auth().currentUser.uid,
-            get_attributes: ["perhaps", "wants", "musts"],
+            records: [
+              {
+                uid: firebase.auth().currentUser.uid,
+                perhaps: [],
+                wants: [],
+                musts: [],
+              },
+            ],
           });
-          if (userData.length === 0) {
-            // If the user has no entries in the database yet, we create them
-            var insertStatus = runAtDb({
-              operation: "insert",
-              schema: "dumptabs",
-              table: "dumps",
-              records: [
-                {
-                  uid: firebase.auth().currentUser.uid,
-                  perhaps: [],
-                  wants: [],
-                  musts: [],
-                },
-              ],
-            });
-            console.log(insertStatus);
-          }
+          console.log(insertStatus);
 
           this.setState({
             isLoaded: true,
