@@ -38,20 +38,16 @@ export default function Login() {
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        //var credential = result.credential;
-
-        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-        //var token = credential.accessToken;
-
-        // The signed-in user info.
+      .then(function (result) {
+        var token = result.credential.accessToken;
         var user = result.user;
+
+        console.log(token);
         console.log(user);
       })
-      .catch((error) => {
-        // var errorCode = error.code;
-        // var errorMessage = error.message;
+      .catch(function (error) {
+        console.log(error.code);
+        console.log(error.message);
       });
   }
 
