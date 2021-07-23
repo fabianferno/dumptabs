@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
+import runAtDb from "../../harper-db";
 
 export default function Zone({
   title,
@@ -30,7 +31,7 @@ export default function Zone({
             {title}
           </h1>
           <motion.div
-            className="box container  "
+            className="box container"
             layoutId="box"
             initial={false}
             animate={{ backgroundColor: color }}
@@ -53,8 +54,8 @@ export default function Zone({
                 // value={state.note}
               />
               <div className="d-flex justify-content-end">
-                <button className="mt-2 badge rounded-pill btn   btn-block btn-primary">
-                  + Add a new dump
+                <button className="mt-2 badge rounded-pill btn btn-block btn-primary">
+                  + Dump this zone
                 </button>
               </div>
             </form>
