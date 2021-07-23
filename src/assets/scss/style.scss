@@ -27,6 +27,7 @@ body {
     font-family: 'Poppins', cursive;
     color: map.get($theme-colors, "dull");
     min-height: 100vh;
+    overflow: hidden;
 }
 
 a {
@@ -97,8 +98,8 @@ img.dark-shadow {
     height: 70vh;
     position: absolute;
     display: flex;
-    align-items: stretch;
-    justify-content: stretch;
+    align-items: center;
+    justify-content: space-between;
     background-color: map.get($theme-colors, "info");
     border-bottom: map.get($theme-colors, "primary");
 }
@@ -131,5 +132,25 @@ img.dark-shadow {
     right: 50px;
     background: rgba(0, 0, 0, 0.39);
     opacity: 0.3;
-    border-radius: 35px;
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 0 0 35px 35px;
+}
+
+
+.gradient-button {
+    color: #ffffff;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0)),
+        linear-gradient(-55deg, map.get($theme-colors, "primary"), map.get($theme-colors, "black"));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #000000 inset;
+}
+
+.gradient-button:hover {
+    transition: 0.5s ease;
+    box-shadow: none;
+    color: white;
 }
