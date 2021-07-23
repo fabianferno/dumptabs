@@ -1,6 +1,6 @@
 import Layout from "./Layout";
 import Phases from "../components/dumps/Phases";
-import OnlyOnDesktop from "../components/home/OnlyOnDesktop";
+import OnlyOnDesktop from "./../features/OnlyOnDesktop";
 
 export default function Home() {
   function isMobileDevice() {
