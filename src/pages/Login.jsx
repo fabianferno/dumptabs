@@ -1,11 +1,11 @@
 import { useHistory } from "react-router-dom";
+import { SocialIcon } from "react-social-icons";
+import { useDispatch } from "react-redux";
+import { login } from "../features/userSlice";
 
-import "../firebase";
-
+import "../features/firebase";
 import firebase from "firebase/app";
 import "firebase/auth";
-
-import { SocialIcon } from "react-social-icons";
 
 export default function Login() {
   const history = useHistory();
@@ -57,14 +57,32 @@ export default function Login() {
         className="container d-flex align-items-center justify-content-center flex-column"
         style={{ minHeight: "100vh" }}
       >
-        <h1 className="text-white bg-primary container text-center p-5 ">
-          react-<strong>dump</strong>-tabs
+        <h1
+          style={{ fontSize: "5rem" }}
+          className="text-white bg-primary container text-center p-5 "
+        >
+          <strong>dump</strong>-tabs&trade;
         </h1>
-        <p className="text-white bg-dark container text-center p-2 ">
-          Sign in below to start
+        <p
+          style={{ fontSize: "0.7rem" }}
+          className="text-dark bg-success container text-center p-2 mb-2"
+        >
+          Developed by{" "}
+          <a
+            href="https://www.fabianferno.tech"
+            className="font-weight-bold text-black text-decoration-none"
+          >
+            Fabian Ferno
+          </a>
+        </p>
+        <p
+          style={{ fontSize: "2rem" }}
+          className="text-white container text-center p-2 mt-5"
+        >
+          Hello There, sign in below to get started.
         </p>
 
-        <div className="d-flex justify-content-around mt-5">
+        <div className="d-flex justify-content-around mt-2">
           <div className="mx-3" onClick={signInWithGitHub}>
             <SocialIcon network="github" fgColor="#ffffff" bgColor="#3500D3" />
             <span className="btn social-pill mr-5 font-weight-bold text-capitalize">
