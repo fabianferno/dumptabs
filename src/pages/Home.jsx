@@ -20,5 +20,24 @@ export default function Home() {
     return check;
   }
 
-  return <Layout>{isMobileDevice() ? <OnlyOnDesktop /> : <Phases />}</Layout>;
+  return (
+    <Layout>
+      {isMobileDevice() ? (
+        <OnlyOnDesktop />
+      ) : (
+        <div>
+          <p
+            style={{ zIndex: "1", minWidth: "88vw" }}
+            className=" bg-primary no-select px-5 shadow  text-center p-2 "
+          >
+            A <strong>brain dump</strong> is a complete transfer of accessible
+            knowledge about a particular subject from your brain. <br />
+            Move your thoughts and prioritize your zones through the phases
+            below.
+          </p>
+          <Phases />
+        </div>
+      )}
+    </Layout>
+  );
 }
