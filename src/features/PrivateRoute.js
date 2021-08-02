@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
-import runAtDb from "./features/harper-db";
 
 class PrivateRoute extends React.Component {
   constructor(props) {
@@ -32,48 +31,6 @@ class PrivateRoute extends React.Component {
   render() {
     const { isLoaded, user } = this.state;
     if (!isLoaded) {
-      //If the user has no entries in the database yet, we create them
-      // var insertStatus = runAtDb({
-      //   operation: "insert",
-      //   schema: "dumptabs",
-      //   table: "dumps",
-      //   records: [
-      //     {
-      //       uid: firebase.auth().currentUser.uid,
-      //       perhaps: [],
-      //       wants: [],
-      //       musts: [],
-      //     },
-      //   ],
-      // });
-      // console.log(insertStatus);
-      // // Check for a user's data in the database
-      // var userData = runAtDb({
-      //   operation: "search_by_value",
-      //   schema: "dumptabs",
-      //   table: "dumps",
-      //   search_attribute: "uid",
-      //   search_value: firebase.auth().currentUser.uid,
-      //   get_attributes: ["perhaps", "wants", "musts"],
-      // });
-      // if (userData.length === 0) {
-      //   // If the user has no entries in the database yet, we create them
-      //   var insertStatus = runAtDb({
-      //     operation: "insert",
-      //     schema: "dumptabs",
-      //     table: "dumps",
-      //     records: [
-      //       {
-      //         uid: firebase.auth().currentUser.uid,
-      //         perhaps: [],
-      //         wants: [],
-      //         musts: [],
-      //       },
-      //     ],
-      //   });
-      //   console.log(insertStatus);
-      //}
-
       return (
         <div
           className="d-flex justify-content-center align-items-center"
