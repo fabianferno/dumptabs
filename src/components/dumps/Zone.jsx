@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TextField from "@material-ui/core/TextField";
-import { withStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import firebase from "firebase/app";
 
 import { useHarperDB } from "use-harperdb";
+import runAtDb from "../../features/harper-db";
 
 export default function Zone({
   title,
@@ -24,25 +24,19 @@ export default function Zone({
       table: "dumps",
       search_attribute: "uid",
       search_value: firebase.auth().currentUser.uid,
-      get_attributes: ["perhaps", "wants", "musts"],
+      get_attributes: ["uid", "perhaps", "wants", "musts"],
     },
   });
-
-  const StyledTextField = withStyles((theme) => ({
-    root: {
-      width: 300,
-      "& .MuiInputBase-root": {
-        color: "#000000",
-      },
-    },
-  }))(TextField);
 
   const ZoneItems = (props) => {
     return props.items.map((item) => {
       return (
-        <div className="card bg-primary   shadow  text-white my-2">
-          <div className="card-body ">
-            {JSON.stringify(item.dump).replace(/['"]+/g, "")}
+        <div className="card pt-3 pb-0 px-2 bg-primary shadow text-white my-2">
+          <div className=" ">
+            <h5>{JSON.stringify(item.dump).replace(/['"]+/g, "")}</h5>
+            <p className="badge badge-pill d-flex justify-content-end badge-success bg-secondary pb-0">
+              {JSON.stringify(item.created).replace(/['"]+/g, "")}
+            </p>
           </div>
         </div>
       );
@@ -52,18 +46,33 @@ export default function Zone({
   const handleSubmitClick = (e) => {
     e.preventDefault();
 
-    refresh();
-
     // Get current value
-    var updatedPhase = data[0];
+    var currentPhase = data[0];
+    var newZone = {
+      dump: typerValue,
+      created: new Date().toISOString(),
+    };
 
     // Update phase corresponding to the active part
     if (activePart === "perhaps") {
-      updatedPhase.perhaps.push(typerValue);
+      currentPhase.perhaps.push(newZone);
     } else if (activePart === "wants") {
-      updatedPhase.wants.push(typerValue);
+      currentPhase.wants.push(newZone);
     } else if (activePart === "musts") {
-      updatedPhase.musts.push(typerValue);
+      currentPhase.musts.push(newZone);
+    }
+
+    var insertStatus = runAtDb({
+      operation: "update",
+      schema: "dumptabs",
+      table: "dumps",
+      records: [currentPhase],
+    });
+    console.log(insertStatus);
+
+    if (insertStatus.skipped_hashes.length !== 0) {
+      setTyper("");
+      refresh();
     }
   };
 
@@ -73,8 +82,8 @@ export default function Zone({
       {isSelected && (
         <div className="">
           <h1
-            style={{ zIndex: "1" }}
-            className="text-white no-select mx-4 mb-3"
+            style={{ zIndex: "2" }}
+            className=" position-relative text-white no-select mx-4 mb-3"
           >
             {title}
           </h1>
@@ -88,6 +97,8 @@ export default function Zone({
               ) : (
                 <ZoneItems items={data[0].musts} />
               )}
+
+              {console.log(data)}
             </div>
           ) : error ? (
             <div style={{ color: "red" }}>error: {error || "false"}</div>
@@ -108,9 +119,11 @@ export default function Zone({
             onViewportBoxUpdate={onViewportBoxUpdate}
           >
             <form action="#" className="p-2 text-white ">
-              <StyledTextField
+              <TextField
                 label="Type something..."
                 rows={2}
+                style={{ width: "16vw" }}
+                value={typerValue}
                 fullWidth
                 multiline
                 variant="filled"
