@@ -16,7 +16,7 @@ export default function Zone({
 }) {
   const [typerValue, setTyper] = useState("");
 
-  // primary request, re-run every 5 seconds
+  // eslint-disable-next-line
   const [data, loading, error, refresh] = useHarperDB({
     query: {
       operation: "search_by_value",
