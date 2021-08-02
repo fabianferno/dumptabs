@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
+import runAtDb from "./harper-db";
 
 class PrivateRoute extends React.Component {
   constructor(props) {
@@ -14,6 +15,21 @@ class PrivateRoute extends React.Component {
     firebase.auth().onAuthStateChanged(
       function (user) {
         if (user) {
+          var insertStatus = runAtDb({
+            operation: "insert",
+            schema: "dumptabs",
+            table: "dumps",
+            records: [
+              {
+                uid: firebase.auth().currentUser.uid,
+                perhaps: [],
+                wants: [],
+                musts: [],
+              },
+            ],
+          });
+          console.log(insertStatus);
+
           this.setState({
             isLoaded: true,
             user: user,
