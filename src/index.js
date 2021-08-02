@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { Provider } from "react-redux";
-import store from "./store";
+
+import { HarperDBProvider } from "use-harperdb";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <React.StrictMode>
+    <HarperDBProvider
+      url="https://pattarai-fabianferno.harperdbcloud.com"
+      user="fabianferno"
+      password="KalEl@3155"
+    >
+      <App />
+    </HarperDBProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
