@@ -1,16 +1,16 @@
 import { useHistory } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
-
 import "../features/firebase";
 import firebase from "firebase/app";
 import "firebase/auth";
 
 export default function Login() {
   const history = useHistory();
+
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
-      //console.log(user);
+      // console.log(user);
       history.push("/home");
     }
   });
@@ -21,7 +21,6 @@ export default function Login() {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
         /** @type {firebase.auth.OAuthCredential} */
         // var credential = result.credential;
       })
@@ -37,11 +36,9 @@ export default function Login() {
       .auth()
       .signInWithPopup(provider)
       .then(function (result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-
-        console.log(token);
-        console.log(user);
+        //var token = result.credential.accessToken;
+        //console.log(token);
+        //console.log(user);
       })
       .catch(function (error) {
         console.log(error.code);
